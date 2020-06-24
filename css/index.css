@@ -1,5 +1,4 @@
 /* 내부 스타일 넣기 시작 */
-
 html{
     font-family: 'Noto Sans KR', sans-serif;
     font-size:14px;
@@ -37,250 +36,214 @@ header{
     align-items: center;
 }
 
-.logo{
-    
-}
+
 
 .main_con{
     height: 100vh;
     width: 100%;
-    background: #fff;
-}
-
-.global-nav {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	width: 100%;
-	height: 60px;
-	padding: 0 1rem;
-}
-
-.local-nav {
-	position: absolute;
-	top: 61px;
-	left: 0;
-	z-index: 11;
-	width: 100%;
-	height: 52px;
-	padding: 0 1rem;
-	border-bottom: 1px solid #ddd;
-}
-
-
-.global-nav-links, .local-nav-links{
-    display:flex; /* flex를 써주면 자동가로정렬 */
-    align-items: center; /* 아이템 수직 가운데 정렬 */
-    height: 100%; /* 부모요소와 같게 높이를 맞춰줘야 수직으로 가운데 정렬이 가능 */
-    max-width: 1000px;
-    margin:0 auto;
-}
-
-.global-nav-links{
-    justify-content: space-between; /* 컨텐츠를 같은 간격으로 띄워주기 */
-}
-
-
-.local-nav-links .logo{ /* 구체적인 클래스(.product-name)가 태그(a)보다 우선순위가 높아서 적용됨 */
-    margin-right:auto; /* 해당방향으로 margin값을 auto로 주면 전체 여백을 다 쓰기 때문에 여백 최대값 사용가능 */
-    font-size:1.4rem;
-    font-weight: bold;
-}
-
-.local-nav-links a{
-    font-size:0.8rem;
-}
-
-
-.local-nav-links a:not(.logo){ /* :not() 괄호안의 요소를 제외하고 css 적용 */
-    margin-left:2em;
+   background: #fff;
+   position: relative;
 }
 
 
 
-/*menu 애니메이션*/
+
+
+/****************************** index menu 애니메이션 *******************************/
 
 .container a {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: rgb(29,29,31);
-  text-decoration: none;
-  font-size: 30px;
-  overflow: hidden;
-  top: 5px;
-}
-.container a:after {
-  content: "";
-  position: absolute;
-  background: #ff5252;
-  height: 2px;
-  width: 0%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  left: 50%;
-  bottom: 0;
-  -webkit-transition: 0.35s ease;
-  transition: 0.35s ease;
-}
-.container a:hover:after, .container a:focus:after, .container a:active:after {
-  width: 100%;
-}
-
-.button_container {
-  position: fixed;
-  top: 5%;
-  right: 2%;
-  height: 27px;
-  width: 35px;
-  cursor: pointer;
-  z-index: 100;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-.button_container:hover {
-  opacity: 0.7;
-}
-.button_container.active .top {
-  transform: translateY(11px) translateX(0) rotate(45deg);
-  background: #fff;
-}
-.button_container.active .middle {
-  opacity: 0;
-  background: #fff;
-}
-.button_container.active .bottom {
-  transform: translateY(-11px) translateX(0) rotate(-45deg);
-  background: #fff;
-}
-.button_container span {
-  background: white;
-  border: none;
-  height: 1px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-  cursor: pointer;
-}
-.button_container span:nth-of-type(2) {
-  top: 11px;
-}
-.button_container span:nth-of-type(3) {
-  top: 22px;
-}
-
-
-.overlay {
-  position: fixed;
-  z-index: 3;
-  background: rgb(29,29,31);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.35s, visibility 0.35s, height 0.35s;
-  overflow: hidden;
-}
-.overlay.open {
-  opacity: 0.9;
-  visibility: visible;
-  height: 100%;
-}
-.overlay.open li {
-          animation: fadeInRight 0.5s ease forwards;
-          animation-delay: 0.35s;
-}
-.overlay.open li:nth-of-type(2) {
-          animation-delay: 0.4s;
-}
-.overlay.open li:nth-of-type(3) {
-          animation-delay: 0.45s;
-}
-.overlay.open li:nth-of-type(4) {
-          animation-delay: 0.5s;
-}
-
-
-.overlay nav{
-  position: relative;
-  height: 40%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size:20px;
-  font-weight: 200;
-  text-align: center;
-}
-.overlay ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: inline-block;
-  position: relative;
-  height: 100%;
-}
-.overlay ul li {
-  display: block;
-  height: 25%;
-  height: calc(100% / 4);
-  min-height: 20px;
-  position: relative;
-  opacity: 0;
-}
-.overlay ul li a {
-  display: block;
-  position: relative;
-  color: #fff;
-  text-decoration: none;
-  overflow: hidden;
-}
-.overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
-  width: 100%;
-}
-.overlay ul li a:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0%;
-          transform: translateX(-50%);
-  height: 3px;
-  background: #fff;
-  transition: 0.35s;
-}
-
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    left: 20%;
+   display: inline-block;
+   position: relative;
+   text-align: center;
+   color: rgb(29,29,31);
+   text-decoration: none;
+   font-size: 30px;
+   overflow: hidden;
+   top: 5px;
   }
-  100% {
-    opacity: 1;
-    left: 0;
+  .container a:after {
+   content: "";
+   position: absolute;
+   background: #ff5252;
+   height: 2px;
+   width: 0%;
+   transform: translateX(-50%);
+   left: 50%;
+   bottom: 0;
+   -webkit-transition: 0.35s ease;
+   transition: 0.35s ease;
   }
-}
+  .container a:hover:after, .container a:focus:after, .container a:active:after {
+   width: 100%;
+  }
+  
+  
 
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    left: 20%;
+  .button_container {
+   position: fixed;
+   top: 5%;
+   right: 2%;
+   height: 27px;
+   width: 35px;
+   cursor: pointer;
+   z-index: 100;
+   transition: opacity 0.25s ease;
   }
-  100% {
-    opacity: 1;
-    left: 0;
+  .button_container:hover {
+   opacity: 0.7;
   }
-}
+  .button_container.active .top {
+   transform: translateY(11px) translateX(0) rotate(45deg);
+   background: #fff;
+  }
+  .button_container.active .middle {
+   opacity: 0;
+   background: #fff;
+  }
+  .button_container.active .bottom {
+   transform: translateY(-11px) translateX(0) rotate(-45deg);
+   background: #fff;
+  }
+  .button_container span {
+   background: white;
+   border: none;
+   height: 1px;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transition: all 0.35s ease;
+   cursor: pointer;
+  }
+  .button_container span:nth-of-type(2) {
+   top: 11px;
+  }
+  .button_container span:nth-of-type(3) {
+   top: 22px;
+  }
+  
+  .button_container_black{
+   display: none;
+  }
+  
+  .overlay {
+   position: fixed;
+   z-index: 3;
+   background: rgb(29,29,31);
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 0%;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+   overflow: hidden;
+  }
+  .overlay.open {
+   opacity: 0.9;
+   visibility: visible;
+   height: 100%;
+  }
+  .overlay.open li {
+         animation: fadeInRight 0.5s ease forwards;
+         animation-delay: 0.35s;
+  }
+  .overlay.open li:nth-of-type(2) {
+         animation-delay: 0.4s;
+  }
+  .overlay.open li:nth-of-type(3) {
+         animation-delay: 0.45s;
+  }
+  .overlay.open li:nth-of-type(4) {
+         animation-delay: 0.5s;
+  }
+  
+  
+  .overlay nav{
+   position: relative;
+   /* height: 40%; */
+   height: 50%;
+   top: 50%;
+   right: 20%;
+   transform: translateY(-50%);
+   font-family: 'Noto Sans KR', sans-serif;
+   /* font-size:20px; */
+   /* font-weight: 100; */
+   text-align: center;
+  }
+  .overlay ul {
+	position: absolute;
+   list-style: none;
+   padding: 0;
+   margin: 0 auto;
+   display: inline-block;
+   position: relative;
+   /* height: 100%; */
+  }
+  .overlay ul li {
+   display: block;
+   height: 25%;
+   height: calc(100% / 4);
+   min-height: 20px;
+   position: relative;
+   opacity: 0;
+  }
+  .overlay ul li a {
+   display: block;
+   position: relative;
+   color: #fff;
+   text-decoration: none;
+   overflow: hidden;
+   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+   -webkit-text-fill-color:transparent;
+   transition:color 1s;
+   font-size:8.75em;
+   line-height: 1.214285714285714;
+   font-weight: 700;
+   text-align: left;
+  }
+  /* .overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+   width: 100%;
+  }
+  .overlay ul li a:after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   width: 0%;
+   transform: translateX(-50%);
+   height: 3px;
+   background: #fff;
+   transition: 0.35s;
+  } */
+  
+  .overlay ul li a:hover{
+   -webkit-text-fill-color:#fff;
+  }
 
-/* 모바일에 사용될 미디어쿼리*/
-@media (min-width: 768px) {
-    .button_container{
-        position: absolute;
-        right:5%;
+
+  @-webkit-keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      left: 20%;
     }
-}
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      left: 20%;
+    }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
+  
+  
+  
+ 
